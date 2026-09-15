@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.molpagemb.comment.repository.CommentMapper">
-	<resultMap type="com.example.molpagemb.comment.dto.CommentDTO" id="commentResultMap">
+<mapper namespace="com.example.sywyu01.comment.repository.CommentMapper">
+	<resultMap type="com.example.sywyu01.comment.dto.CommentDTO" id="commentResultMap">
 		<result column="COMMENT_ID" property="commentId"/>
 		<result column="COMMENT_POST_ID" property="commentPostId"/>
 		<result column="COMMENT_USER_ID_NUMBER" property="commentUserIdNumber"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.molpagemb.post.repository.PostMapper">
-  <resultMap type="com.example.molpagemb.post.dto.PostDTO" id="postResultMap">
+<mapper namespace="com.example.sywyu01.post.repository.PostMapper">
+  <resultMap type="com.example.sywyu01.post.dto.PostDTO" id="postResultMap">
   <result column="POST_ID" property="postId"/>
   <result column="POST_BOARD_ID" property="postBoardId"/>
   <result column="POST_USER_ID_NUMBER" property="postUserIdNumber"/>
@@ -39,7 +39,7 @@
   	WHERE POST_ID = #{postId}
   	ORDER BY POST_ID DESC
   </select>
-  <insert id="savePost" parameterType="com.example.molpagemb.post.dto.CreatePostDTO">
+  <insert id="savePost" parameterType="com.example.sywyu01.post.dto.CreatePostDTO">
   	INSERT INTO POSTS (POST_BOARD_ID, POST_USER_ID_NUMBER, POST_TITLE, POST_CONTENT, POST_CREATED_AT)
 	VALUES (
 		#{postBoardId},

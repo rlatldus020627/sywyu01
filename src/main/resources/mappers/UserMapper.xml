@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.molpagemb.user.repository.UserMapper">
-	<resultMap type="com.example.molpagemb.user.dto.UserDTO" id="userResultMap" >
+<mapper namespace="com.example.sywyu01.user.repository.UserMapper">
+	<resultMap type="com.example.sywyu01.user.dto.UserDTO" id="userResultMap" >
 		<id column="USER_ID_NUMBER" property="userIdNumber"/>
 		<result column="USER_ID" property="userId"/>
 		<result column="USER_PASSWORD" property="userPassword"/>
 		<result column="USER_CREATED_AT" property="userCreatedAt"/>
-		<collection property="userRole" ofType="com.example.molpagemb.common.enums.UserRole">
+		<collection property="userRole" ofType="com.example.sywyu01.common.enums.UserRole">
 			<result column="ROLE"/>
 		</collection>
 	</resultMap>
@@ -48,7 +48,7 @@
 		WHERE USER_ID = #{userId}
 	</select>
 	
-	<insert id="createUser" parameterType="com.example.molpagemb.user.dto.CreateUserDTO">
+	<insert id="createUser" parameterType="com.example.sywyu01.user.dto.CreateUserDTO">
 		INSERT INTO USERS (
 							USER_ID,
 							USER_PASSWORD
