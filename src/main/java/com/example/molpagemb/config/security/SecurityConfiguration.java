@@ -14,6 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.example.molpagemb.config.jwt.JwtFilter;
 import com.example.molpagemb.config.jwt.JwtTokenProvider;
@@ -25,7 +26,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 //@EnableMethodSecurity
 public class SecurityConfiguration {
+
 	private final JwtTokenProvider jwtTokenProvider;
+
+  
 	
 	@Bean
 	PasswordEncoder passwordEncoder() {
@@ -37,7 +41,7 @@ public class SecurityConfiguration {
 	}
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-		http.cors(cors -> cors.configurationSource(null))
+		http.csrf(csrf -> csrf.disable()).cors(cors -> cors.configurationSource(corsConfigurationSource()))
 				.authorizeHttpRequests(req -> {
 			req
 				.requestMatchers("/qwert/users/sign-up"
@@ -54,7 +58,13 @@ public class SecurityConfiguration {
 		CorsConfiguration config = new CorsConfiguration();
 		
 		config.setAllowedOrigins(List.of("http://localhost:3000"));
-		return null;
+		config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
+		config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+		config.setAllowCredentials(true);
+		
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", config);
+		return source;
 		
 	}
 
