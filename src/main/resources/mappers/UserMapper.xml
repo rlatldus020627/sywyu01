@@ -24,7 +24,7 @@
 	</select>
 	<select id="findAllUsersByUserRole" resultMap="userResultMap">
 		<include refid="userSQL" />
-		WHERE USER_ROLE = #{userRole}
+		WHERE r.ROLE = #{userRole}
 	</select>
 	<select id="findUserByUserId" parameterType="String" resultMap="userResultMap">
 		<include refid="userSQL" />

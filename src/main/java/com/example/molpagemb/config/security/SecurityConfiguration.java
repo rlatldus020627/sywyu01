@@ -1,5 +1,7 @@
 package com.example.molpagemb.config.security;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,6 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
 
 import com.example.molpagemb.config.jwt.JwtFilter;
 import com.example.molpagemb.config.jwt.JwtTokenProvider;
@@ -33,7 +37,8 @@ public class SecurityConfiguration {
 	}
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-		http.authorizeHttpRequests(req -> {
+		http.cors(cors -> cors.configurationSource(null))
+				.authorizeHttpRequests(req -> {
 			req
 				.requestMatchers("/qwert/users/sign-up"
 									, "/qwert/users/sign-in"
@@ -42,6 +47,15 @@ public class SecurityConfiguration {
 				.anyRequest().authenticated();
 		}).addFilterBefore(new JwtFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
 		return http.build(); 
+	}
+	
+	@Bean
+	public CorsConfigurationSource corsConfigurationSource() {
+		CorsConfiguration config = new CorsConfiguration();
+		
+		config.setAllowedOrigins(List.of("http://localhost:3000"));
+		return null;
+		
 	}
 
 }
