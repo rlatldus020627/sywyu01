@@ -18,7 +18,7 @@
   		POST_CONTENT, 
   		POST_CREATED_AT 
 	FROM POSTS
-	ORDER BY POST_ID DESC
+
   </sql>
   <select id="findAllPosts" resultMap="postResultMap">
   	<include refid="postSQL"/>
@@ -27,14 +27,17 @@
   <select id="findAllPostsByBoardId" resultMap="postResultMap">
   	<include refid="postSQL"/>
   	WHERE POST_BOARD_ID = #{boardId}
+  	ORDER BY POST_ID DESC
   </select>
   <select id="findAllPostsByUserIdNumber" resultMap="postResultMap">
   	<include refid="postSQL"/>
   	WHERE POST_USER_ID_NUMBER = #{userIdNumber}
+  	ORDER BY POST_ID DESC
   </select>
   <select id="findPostByPostId" resultMap="postResultMap">
   	<include refid="postSQL"/>
   	WHERE POST_ID = #{postId}
+  	ORDER BY POST_ID DESC
   </select>
   <insert id="savePost" parameterType="com.example.molpagemb.post.dto.CreatePostDTO">
   	INSERT INTO POSTS (POST_BOARD_ID, POST_USER_ID_NUMBER, POST_TITLE, POST_CONTENT, POST_CREATED_AT)
