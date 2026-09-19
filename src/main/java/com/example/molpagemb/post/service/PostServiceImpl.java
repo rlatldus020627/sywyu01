@@ -46,7 +46,8 @@ public class PostServiceImpl implements PostService{
 
 	@Override
 	public void updatePost(Long postId, UpdatePostDTO updatePostDTO) {
-		// TODO Auto-generated method stub
+		updatePostDTO.setPostId(postId);
+		postMapper.updatePost(updatePostDTO);
 		
 	}
 

@@ -1,5 +1,6 @@
 package com.example.molpagemb.post.controller;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 
@@ -8,12 +9,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.molpagemb.post.dto.CreatePostDTO;
 import com.example.molpagemb.post.dto.PostDTO;
+import com.example.molpagemb.post.dto.UpdatePostDTO;
 import com.example.molpagemb.post.service.PostService;
 import com.example.molpagemb.user.service.UserService;
 
@@ -48,7 +51,7 @@ public class PostController {
 		return ResponseEntity.ok(postService.findPostByPostId(postId));
 	}
 	
-	@PostMapping("/save-post/{postBoardId}")
+	@PostMapping("/post/{postBoardId}")
 	public ResponseEntity<Map<String, Long>> createPost(@PathVariable("postBoardId") Long postBoardId, Authentication authentication, @RequestBody CreatePostDTO createPostDTO){
 		Long userIdNumber = userService.findUserByUserId(authentication.getName()).getUserIdNumber();
 		postService.createPost(postBoardId, userIdNumber, createPostDTO);
@@ -59,5 +62,11 @@ public class PostController {
 				.status(201)
 				.body(Map.of("postId", createPostDTO.getPostId()));
 		
+	}
+	
+	@PutMapping("/post/{postId}")
+	public ResponseEntity<Void> updatePost(Principal principal, @PathVariable("postId") Long postId, @RequestBody UpdatePostDTO updatePostDTO){
+		postService.updatePost(postId, updatePostDTO);
+		return ResponseEntity.ok().build();
 	}
 }
