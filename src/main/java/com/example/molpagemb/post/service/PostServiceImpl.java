@@ -44,4 +44,22 @@ public class PostServiceImpl implements PostService{
 		postMapper.savePost(createPostDTO);
 	}
 
+	@Override
+	public void updatePost(Long postId, UpdatePostDTO updatePostDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deletePostByPostId(Long userIdNumber, Long postId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deletePostByPostIdAdmin(Long postId) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

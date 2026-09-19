@@ -49,4 +49,10 @@
 		SYSDATE
 			)
   </insert>
+  <update id="updatePost" parameterType="com.example.molpagemb.post.dto.UpdatePostDTO">
+  	UPDATE POSTS 
+	SET POST_TITLE = #{postTitle},
+		POST_CONTENT = #{postContent}
+	WHERE POST_ID = #{postId}
+	</update>
   </mapper>
