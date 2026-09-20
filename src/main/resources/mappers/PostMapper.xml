@@ -55,4 +55,16 @@
 		POST_CONTENT = #{postContent}
 	WHERE POST_ID = #{postId}
 	</update>
+	<delete id="deletePostByPostId" >
+	DELETE 
+	FROM POSTS 
+	WHERE POST_ID = #{postId}
+	AND
+	POST_USER_ID_NUMBER = #{userIdNumber}
+	</delete>
+	<delete id="deletePostByPostIdAdmin">
+	DELETE 
+	FROM POSTS 
+	WHERE POST_ID = #{postId}
+	</delete>
   </mapper>

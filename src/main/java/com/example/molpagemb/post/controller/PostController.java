@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,5 +69,11 @@ public class PostController {
 	public ResponseEntity<Void> updatePost(Principal principal, @PathVariable("postId") Long postId, @RequestBody UpdatePostDTO updatePostDTO){
 		postService.updatePost(postId, updatePostDTO);
 		return ResponseEntity.ok().build();
+	}
+	
+	@DeleteMapping("/post/{postId}")
+	public ResponseEntity<Void> deletePost(Principal principal, @PathVariable("postId") Long postId){
+		Long userId = (principal != null) ? Long.parseLong(principal.getName()) : null;
+		return null;
 	}
 }
