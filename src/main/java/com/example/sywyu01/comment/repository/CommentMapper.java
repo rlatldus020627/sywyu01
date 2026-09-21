@@ -14,7 +14,7 @@ public interface CommentMapper {
 	List<CommentDTO> findAllCommentsByUserIdNumber(Long userIdNumber);//선택한 유저의 모든 댓글 조회
 	CommentDTO findCommentByCommentId(Long commentId);//선택한 하나의 댓글 조회
 	
-	void saveComment(Long commentUserIdNumber, Long commentPostId, CreateCommentDTO createCommentDTO);
+	void saveComment(CreateCommentDTO createCommentDTO);
 	
 	void deleteComment(Long commentId);
 

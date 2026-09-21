@@ -38,9 +38,9 @@ public class PostServiceImpl implements PostService{
 	}
 
 	@Override
-	public void createPost(Long postBoardId, Long userIdNumber, CreatePostDTO createPostDTO) {
+	public void createPost(Long postBoardId, Long postUserIdNumber, CreatePostDTO createPostDTO) {
 		createPostDTO.setPostBoardId(postBoardId);
-		createPostDTO.setPostUserIdNumber(userIdNumber);
+		createPostDTO.setPostUserIdNumber(postUserIdNumber);
 		postMapper.savePost(createPostDTO);
 	}
 

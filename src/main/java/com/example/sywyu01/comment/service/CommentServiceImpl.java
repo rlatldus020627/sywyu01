@@ -2,10 +2,10 @@ package com.example.sywyu01.comment.service;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.sywyu01.comment.dto.CommentDTO;
+import com.example.sywyu01.comment.dto.CreateCommentDTO;
 import com.example.sywyu01.comment.repository.CommentMapper;
 
 import lombok.RequiredArgsConstructor;
@@ -32,14 +32,19 @@ public class CommentServiceImpl implements CommentService{
 
 	@Override
 	public CommentDTO findCommentByCommentId(Long commentId) {
-		// TODO Auto-generated method stub
 		return commentMapper.findCommentByCommentId(commentId);
 	}
 
 	@Override
-	public void saveComment(Long commentuserIdNumber, Long commentPostId) {
-		// TODO Auto-generated method stub
+	public void saveComment(Long commentPostId, Long commentUserIdNumber, CreateCommentDTO createCommentDTO) {
+		createCommentDTO.setCommentPostId(commentPostId);
+		createCommentDTO.setCommentUserIdNumber(commentUserIdNumber);
+		commentMapper.saveComment(createCommentDTO);
 		
 	}
+
+	
+		
+	
 
 }

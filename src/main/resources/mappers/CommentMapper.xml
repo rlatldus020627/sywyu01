@@ -31,5 +31,14 @@
 		<include refid="commentSQL" />
 		WHERE COMMENT_ID = #{commentId}
 	</select>
-	<insert id="saveComment" parameterType="com.example.sywyu01.comment.dto"></insert>
+	<insert id="saveComment" parameterType="com.example.sywyu01.comment.dto">
+		INSERT INTO COMMENTS (COMMENT_POST_ID, COMMENT_USER_ID_NUMBER, COMMENT_CONTENT, COMMENT_CREATED_AT )
+		VALUES (
+				#{commentPostId},
+				#{commentUserIdNumber},
+				#{commentContent},
+				SYSDATE
+)
+
+	</insert>
 </mapper>
