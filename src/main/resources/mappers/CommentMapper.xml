@@ -31,4 +31,5 @@
 		<include refid="commentSQL" />
 		WHERE COMMENT_ID = #{commentId}
 	</select>
+	<insert id="saveComment" parameterType="com.example.sywyu01.comment.dto"></insert>
 </mapper>

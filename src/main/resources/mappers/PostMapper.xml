@@ -49,7 +49,7 @@
 		SYSDATE
 			)
   </insert>
-  <update id="updatePost" parameterType="com.example.molpagemb.post.dto.UpdatePostDTO">
+  <update id="updatePost" parameterType="com.example.sywyu01.post.dto.UpdatePostDTO">
   	UPDATE POSTS 
 	SET POST_TITLE = #{postTitle},
 		POST_CONTENT = #{postContent}
