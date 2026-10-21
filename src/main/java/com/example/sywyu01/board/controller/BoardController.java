@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/qwert/boards")
+@RequestMapping("/api/boards")
 public class BoardController {
 	private final BoardService boardService;
 	
@@ -23,7 +23,7 @@ public class BoardController {
 		return ResponseEntity.ok(boardService.findAllBoards());
 	}
 	
-	@GetMapping("/find-board-by-board-id")
+	@GetMapping("/find-board-by-board-id/{boardId}")
 	public ResponseEntity<BoardDTO> findBoardByBoardId(Long boardId){
 		return ResponseEntity.ok(boardService.findBoardByBoardId(boardId));
 	}

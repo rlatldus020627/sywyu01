@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/qwert/comments")
+@RequestMapping("/api/comments")
 public class CommentController {
 	private final CommentService commentService;
 	
