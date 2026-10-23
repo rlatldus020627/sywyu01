@@ -10,6 +10,7 @@ import com.example.sywyu01.board.dto.BoardDTO;
 public interface BoardMapper {
 	List<BoardDTO> findAllBoards();
 	BoardDTO findBoardByBoardId(Long boardId);
+	BoardDTO findBoardByBoardCode(String boardCode);
 	
 
 }

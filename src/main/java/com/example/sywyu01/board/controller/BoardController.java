@@ -29,5 +29,10 @@ public class BoardController {
 		return ResponseEntity.ok(boardService.findBoardByBoardId(boardId));
 	}
 	
+	@GetMapping("/code/{boardCode}")
+	public ResponseEntity<BoardDTO> findBoardByBoardCode(@PathVariable String boardCode){
+	    return ResponseEntity.ok(boardService.findBoardByBoardCode(boardCode));
+	}
+	
 
 }

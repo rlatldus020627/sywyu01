@@ -37,7 +37,7 @@ public class PostController {
 		
 	}
 	
-	@GetMapping("/find-all-posts-by-board-id/{postBoardId}")
+	@GetMapping("/find-all-posts-by-board-id/{postBoardCode}")
 	public ResponseEntity<List<PostDTO>> findAllPostsByBoardId(@PathVariable("postBoardId") Long boardId){
 		return ResponseEntity.ok(postService.findAllPostsByBoardId(boardId));
 		

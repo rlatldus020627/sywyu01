@@ -49,6 +49,7 @@ public class SecurityConfiguration {
 									, "/api/users/sign-in"
 									).permitAll()
 				.requestMatchers(HttpMethod.GET, "api/boards/**").permitAll()
+				.requestMatchers("/**").permitAll()
 				.requestMatchers("/api/users/sign-out").authenticated()
 				.anyRequest().authenticated();
 		}).addFilterBefore(new JwtFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);

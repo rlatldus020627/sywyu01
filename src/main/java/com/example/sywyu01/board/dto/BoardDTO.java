@@ -9,4 +9,5 @@ public class BoardDTO {
 	private Long boardId;
 	private String boardName;
 	private LocalDateTime boardCreatedAt;
+	private String boardCode;
 }

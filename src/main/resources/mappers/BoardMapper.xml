@@ -20,4 +20,8 @@
 		<include refid="boardSQL"/>
 		WHERE BOARD_ID = #{boardId}
 	</select>
+	<select id="findBoardByBoardCode" resultMap="boardResultMap">
+		<include refid="boardSQL"/>
+		WHERE BOARD_ID = #{boardCode}
+	</select>
 </mapper>

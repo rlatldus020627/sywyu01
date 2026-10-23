@@ -24,4 +24,9 @@ public class BoardServiceImpl implements BoardService{
 		return boardMapper.findBoardByBoardId(boardId);
 	}
 
+	@Override
+	public BoardDTO findBoardByBoardCode(String boardCode) {
+		return boardMapper.findBoardByBoardCode(boardCode);
+	}
+
 }
